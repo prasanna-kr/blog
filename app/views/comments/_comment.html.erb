@@ -1,0 +1,16 @@
+<% @article.comments.each do |comment| %>
+    <% unless comment.archived? %>
+        <p>
+            <strong>Commenter:</strong>
+            <%= comment.commentator %>
+        </p>
+
+        <p>
+            <strong>Comment:</strong>
+            <%= comment.body %>
+        </p>
+        <p>
+            <%= button_to 'Destroy comment', [comment.article, comment], method: :delete%>
+        </p>
+    <% end %>
+<% end %>
