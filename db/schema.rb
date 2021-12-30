@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_054055) do
+ActiveRecord::Schema.define(version: 2021_12_30_062832) do
+
+  create_table "Assemblies_Parts", id: false, force: :cascade do |t|
+    t.integer "Assembly_id", null: false
+    t.integer "Part_id", null: false
+  end
 
   create_table "account_histories", force: :cascade do |t|
     t.integer "credit_rating"
@@ -46,6 +51,12 @@ ActiveRecord::Schema.define(version: 2021_12_30_054055) do
     t.string "status"
   end
 
+  create_table "assemblies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -68,6 +79,12 @@ ActiveRecord::Schema.define(version: 2021_12_30_054055) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string "part_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "patients", force: :cascade do |t|
