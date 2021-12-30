@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_062832) do
+ActiveRecord::Schema.define(version: 2021_12_30_074701) do
 
   create_table "Assemblies_Parts", id: false, force: :cascade do |t|
     t.integer "Assembly_id", null: false
@@ -101,6 +101,14 @@ ActiveRecord::Schema.define(version: 2021_12_30_062832) do
 
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "type"
+    t.string "color"
+    t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
